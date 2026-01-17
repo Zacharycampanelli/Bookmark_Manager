@@ -1,0 +1,57 @@
+/* ------------------------------------------
+   COLOR VARIABLES
+------------------------------------------ */
+:root {
+  /* Semantic tokens */
+  --bg: var(--neutral-light-0);
+  --text: var(--neutral-light-600);
+
+  /* Icon color */
+  --icon-primary: var(--neutral-light-900);
+
+  /* 🔑 Active surface */
+  --background-primary: var(--neutral-light-0);
+
+  /* 🔑 Inactive surface */
+  --background-secondary: var(--neutral-light-300);
+
+  /* Neutral (Light Mode) */
+  --neutral-light-900: #051513;
+  --neutral-light-800: #4c5c59;
+  --neutral-light-500: #899492;
+  --neutral-light-400: #c0cfcc;
+  --neutral-light-300: #dde9e7;
+  --neutral-light-100: #e8f0ef;
+  --neutral-light-0: #ffffff;
+}
+
+:root[data-theme='dark'] {
+  /* Neutral (Dark Mode) */
+  --neutral-dark-900: #001414;
+  --neutral-dark-800: #001f1f;
+  --neutral-dark-600: #002e2d;
+  --neutral-dark-500: #004241;
+  --neutral-dark-400: #004746;
+  --neutral-dark-300: #00706e;
+  --neutral-dark-100: #b1b9b9;
+  --neutral-dark-0: #ffffff;
+
+  /* 🔑 Semantic overrides */
+  --bg: var(--neutral-dark-900);
+  --text: var(--neutral-dark-0);
+
+    /* Icon color (dark mode) */
+  --icon-primary: var(--neutral-dark-0);
+
+  /* Active */
+  --background-primary: var(--neutral-dark-600);
+
+  /* Inactive */
+  --background-secondary: var(--neutral-dark-500);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}

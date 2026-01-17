@@ -1,0 +1,115 @@
+/* ------------------------
+   FONTS
+------------------------- */
+
+@font-face {
+  font-family: "Manrope";
+  src: url('@/assets/fonts/Manrope/Manrope-VariableFont_wght.ttf');
+  font-weight: 400 70;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------
+   FONT FAMILY
+------------------------- */
+
+.text-preset-1,
+.text-preset-2,
+.text-preset-2-semibold,
+.text-preset-3,
+.text-preset-3-medium,
+.text-preset-4,
+.text-preset-4-medium,
+.text-preset-5 {
+  font-family: "Manrope", sans-serif;
+  letter-spacing: 0;
+}
+
+/* ------------------------
+   TEXT PRESET 1
+   24px / 140% / Bold
+------------------------- */
+
+.text-preset-1 {
+  font-size: 24px;
+  line-height: 140%;
+  font-weight: 700;
+}
+
+/* ------------------------
+   TEXT PRESET 2 (Bold)
+   20px / 120% / Bold
+------------------------- */
+
+.text-preset-2 {
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 700;
+}
+
+/* ------------------------
+   TEXT PRESET 2 (SemiBold)
+   20px / 120% / SemiBold
+------------------------- */
+
+.text-preset-2-semibold {
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 600;
+}
+
+/* ------------------------
+   TEXT PRESET 3 (SemiBold)
+   16px / 140% / SemiBold
+------------------------- */
+
+.text-preset-3 {
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 600;
+}
+
+/* ------------------------
+   TEXT PRESET 3 (Medium)
+   16px / 130% / Medium
+------------------------- */
+
+.text-preset-3-medium {
+  font-size: 16px;
+  line-height: 130%;
+  font-weight: 500;
+}
+
+/* ------------------------
+   TEXT PRESET 4 (SemiBold)
+   14px / 140% / SemiBold
+------------------------- */
+
+.text-preset-4 {
+  font-size: 14px;
+  line-height: 140%;
+  font-weight: 600;
+}
+
+/* ------------------------
+   TEXT PRESET 4 (Medium)
+   14px / 150% / Medium
+------------------------- */
+
+.text-preset-4-medium {
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 500;
+}
+
+/* ------------------------
+   TEXT PRESET 5 (Medium)
+   12px / 140% / Medium
+------------------------- */
+
+.text-preset-5 {
+  font-size: 12px;
+  line-height: 140%;
+  font-weight: 500;
+}
