@@ -1,5 +1,5 @@
-@import "./styles/reset.css";
-@import "./styles/spacing.css";
-@import "./styles/typography.css";
-@import "./styles/radius.css";
-@import "./styles/colors.css";
+@import "./assets/styles/reset.css";
+@import "./assets/styles/spacing.css";
+@import "./assets/styles/typography.css";
+@import "./assets/styles/radius.css";
+@import "./assets/styles/colors.css";

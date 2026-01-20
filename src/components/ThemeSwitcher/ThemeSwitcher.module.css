@@ -1,0 +1,64 @@
+.theme-switcher {
+  position: relative;
+  display: inline-flex; /* Changed from grid to inline-flex to work better with ToggleGroup */
+  background-color: var(--background-secondary);
+  border-radius: 0.5rem;
+  padding: 4px;
+  width: 96px;
+  height: 40px;
+  box-sizing: border-box;
+  cursor: pointer;
+  /* Ensure items are aligned */
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Sliding background */
+.theme-switcher::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px); /* Half width minus padding adjustment */
+  height: calc(100% - 8px);
+  background-color: var(--background-primary);
+  border-radius: 0.25rem; /* Slightly smaller radius for inner item */
+  transition: transform 0.2s ease-in-out;
+  pointer-events: none; /* Let clicks pass through to buttons */
+}
+
+/* Move slider when dark mode is active */
+:root[data-theme='dark'] .theme-switcher::before {
+  transform: translateX(100%);
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1; /* Above slider */
+  height: 100%;
+  border-radius: 0.25rem;
+  outline: none; /* Custom focus styles if needed */
+}
+
+.icon {
+
+  color: var(--neutral-light-500); /* Default unselected color */
+  transition: color 0.2s ease;
+}
+
+.icon path {
+  stroke: currentColor;
+}
+
+/* Active Icon Styling */
+/* Use data-state from Radix ToggleGroup.Item */
+.item[data-state='on'] .icon {
+  color: var(--icon-primary);
+}
