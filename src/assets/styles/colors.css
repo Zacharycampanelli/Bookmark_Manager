@@ -23,6 +23,10 @@
   --neutral-light-300: #dde9e7;
   --neutral-light-100: #e8f0ef;
   --neutral-light-0: #ffffff;
+
+  /* Teal */
+  --colors-teal-700: #014745; 
+  --colors-teal-800: #013C3B; 
 }
 
 :root[data-theme='dark'] {
@@ -36,6 +40,7 @@
   --neutral-dark-100: #b1b9b9;
   --neutral-dark-0: #ffffff;
 
+
   /* 🔑 Semantic overrides */
   --bg: var(--neutral-dark-900);
   --text: var(--neutral-dark-0);
@@ -48,6 +53,9 @@
 
   /* Inactive */
   --background-secondary: var(--neutral-dark-500);
+
+  
+  
 }
 
 html,
