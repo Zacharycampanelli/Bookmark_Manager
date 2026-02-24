@@ -82,17 +82,14 @@
 
 /* Dark Mode: Focus */
 :global([data-theme='dark']) .Root:focus-visible {
-  outline: none !important;     /* remove teal ring */
-  border: 2px solid var(--neutral-dark-400);
-  background-color: var(--neutral-dark-800);
-  box-shadow: 0 0 0px 3px #b1b9b9;
+  outline: none !important;
+  box-shadow: none;
 }
 
-/* Dark Mode: Checked */
 :global([data-theme='dark']) .Root[data-state='checked'] {
-  background-color: var(--colors-teal-700); /* White Box */
-  border-color: var(--black);
-  color: var(--neutral-dark-0);          /* Dark Icon */
+  background-color: var(--colors-teal-700); /* inner teal */
+  border: 2px solid var(--black);          /* thin black border */
+  color: var(--neutral-dark-0);
 }
 
 /* Dark Mode: Checked Hover */
@@ -101,13 +98,30 @@
   border-color: var(--black);
 }
 
-/* Dark Mode: Focus */
-:global([data-theme='dark']) .Root[data-state='checked']:focus-visible {
-  outline: none !important;     /* remove teal ring */
-  border: 2px solid var(--black);
-  box-shadow: 0 0 0px 3px #b1b9b9;
-  background-color: var(--colors-teal-700);
+/* DARK + UNCHECKED + FOCUS-VISIBLE */
+:global([data-theme='dark']) .Root:not([data-state='checked']):focus-visible {
+  outline: none !important;
+
+  background-color: var(--neutral-dark-700);  /* inner */
+  border: 2px solid var(--neutral-dark-400);  /* thin border */
+
+  box-shadow:
+    0 0 0 3px var(--neutral-dark-800),   /* middle band */
+    0 0 0 6px #b1b9b9;                   /* outer grey ring */
 }
+
+/* DARK + CHECKED + FOCUS-VISIBLE */
+:global([data-theme='dark']) .Root[data-state='checked']:focus-visible {
+  outline: none !important;
+  background-color: var(--colors-teal-700);
+  border: 2px solid var(--black);
+
+  /* 1) inner dark band 2) outer grey ring */
+  box-shadow:
+    0 0 0 3px var(--neutral-dark-800),
+    0 0 0 6px #b1b9b9;
+}
+
 
 /* =========================================
    6. UTILITIES
