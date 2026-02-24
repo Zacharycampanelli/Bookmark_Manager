@@ -7,6 +7,7 @@ interface CheckboxProps extends React.ComponentPropsWithoutRef<typeof CheckboxPr
   label?: string;
 }
 
+
 export default function Checkbox({ label, className, disabled, id, ...props }: CheckboxProps) {
   // Generate a unique ID if one isn't provided, to link the label
   const elementId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;

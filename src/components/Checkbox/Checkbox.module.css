@@ -1,13 +1,14 @@
+/* =========================================
+   1. SHARED LAYOUT & BASE STYLES
+   (Always active, regardless of mode/state)
+   ========================================= */
+
 .Wrapper {
   display: flex;
   align-items: center;
   gap: 12px;
   cursor: pointer;
 }
-
-/* -----------------------------------------------------------------
-        Default - Light Mode 
------------------------------------------------------------------ */
 
 .Root {
   all: unset;
@@ -18,59 +19,99 @@
   justify-content: center;
   border-radius: var(--radius-4, 4px);
   transition: all 0.2s ease-in-out;
+  outline: none;
+  box-shadow: none;
 
-  /* Light Mode - Unchecked (Default) */
-  background-color: var(--neutral-light-0);
+
+
+/* ----------------------------------------
+     2. LIGHT MODE: UNCHECKED (Default)
+     ----------------------------------------- */
+       background-color: var(--neutral-light-0);
   border: 1px solid var(--neutral-light-500);
 }
 
-/* Light Mode: Unchecked Interactive*/
+/* -----------------------------------------
+   3. LIGHT MODE: INTERACTIVE (Unchecked)
+   ----------------------------------------- */
 .Wrapper:hover .Root {
-  background-color: var(--colors-teal-800);
+  background-color: var(--neutral-light-300);
 }
 
-.Root:focus {
-  outline: 2px solid var(--colors-teal-800);
+.Root:hover {
+  background-color: var(--neutral-light-300)
+}
+
+.Root:focus-visible {
+  outline: 2px solid var(--colors-teal-700);
   outline-offset: 2px;
 }
 
-/* Light Mode: Checked */
+/* -----------------------------------------
+   4. LIGHT MODE: CHECKED
+   ----------------------------------------- */
 .Root[data-state='checked'] {
   background-color: var(--colors-teal-700);
   border-color: var(--colors-teal-700);
   color: var(--bg);
 }
 
-/* Light Mode: Checked */
-.Root[data-state='checked'] .Wrapper:hover .Root {
+.Root[data-state='checked']:hover {
   background-color: var(--colors-teal-800);
 }
 
-/* -----------------------------------------------------------------
-        Dark Mode
+.Root[data-state='checked']:focus-visible {
+  background-color: var(--colors-teal-700);
+}
 
-        /* Dark Mode: Unchecked */
+/* =========================================
+   5. DARK MODE OVERRIDES
+   (Must come AFTER light mode to o`verride it)
+   ========================================= */
+
 :global([data-theme='dark']) .Root {
-  background-color: var(--neutral-dark-900);
-  border-color: var(--neutral-dark-600);
+  background-color: var(--neutral-dark-700);
+  border-color: var(--neutral-dark-400);
 }
 
 /* Dark Mode: Unchecked Hover */
 :global([data-theme='dark']) .Wrapper:hover .Root {
   border-color: var(--neutral-dark-300);
+  background-color: var(--neutral-dark-600);
+}
+
+/* Dark Mode: Focus */
+:global([data-theme='dark']) .Root:focus-visible {
+  outline: none !important;     /* remove teal ring */
+  border: 2px solid var(--neutral-dark-400);
+  background-color: var(--neutral-dark-800);
+  box-shadow: 0 0 0px 3px #b1b9b9;
 }
 
 /* Dark Mode: Checked */
 :global([data-theme='dark']) .Root[data-state='checked'] {
-  background-color: var(--neutral-dark-0); /* White Box */
-  border-color: var(--neutral-dark-0);
-  color: var(--neutral-dark-900);          /* Dark Icon */
+  background-color: var(--colors-teal-700); /* White Box */
+  border-color: var(--black);
+  color: var(--neutral-dark-0);          /* Dark Icon */
+}
+
+/* Dark Mode: Checked Hover */
+:global([data-theme='dark']) .Root[data-state='checked']:hover {
+  background-color: var(--colors-teal-800);
+  border-color: var(--black);
 }
 
 /* Dark Mode: Focus */
-:global([data-theme='dark']) .Root:focus {
-  outline-color: var(--neutral-dark-0);
+:global([data-theme='dark']) .Root[data-state='checked']:focus-visible {
+  outline: none !important;     /* remove teal ring */
+  border: 2px solid var(--black);
+  box-shadow: 0 0 0px 3px #b1b9b9;
+  background-color: var(--colors-teal-700);
 }
+
+/* =========================================
+   6. UTILITIES
+   ========================================= */
 /* -----------------------------------------------------------------
    .Indicator (The Icon)
 ----------------------------------------------------------------- */

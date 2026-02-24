@@ -27,6 +27,8 @@
   /* Teal */
   --colors-teal-700: #014745; 
   --colors-teal-800: #013C3B; 
+  
+  --black: #000000;
 }
 
 :root[data-theme='dark'] {
@@ -54,7 +56,6 @@
   /* Inactive */
   --background-secondary: var(--neutral-dark-500);
 
-  
   
 }
 
