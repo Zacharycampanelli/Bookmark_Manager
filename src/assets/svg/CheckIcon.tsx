@@ -10,6 +10,7 @@ const CheckIcon = (props: SVGProps<SVGSVGElement>) => (
   >
     <path
       stroke="currentColor"
+      
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.6}

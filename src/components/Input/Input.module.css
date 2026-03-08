@@ -2,7 +2,7 @@
 .Container {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  color: var(--neutral-light-500);
 }
 
 /* positions icon relative to the field */
@@ -27,11 +27,42 @@
   height: 1rem;
   pointer-events: none; /* don't block clicks */
   display: block;
+  color: var(--neutral-light-500);
 }
 
+.Label {
+  color: var(--neutral-light-900);
+  margin-bottom: 4px;
+}
+
+.hint {
+  color: var(--neutral-light-800);
+  margin-top: -10px;
+}
 /* Increase height by increasing vertical padding */
 .Wrapper :global(.rt-TextFieldInput) {
   padding-left: 2rem; /* keeping your icon padding */
   padding-top: 12px;
   padding-bottom: 12px;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  color: var(--neutral-light-500);
+}
+
+.Wrapper :global(.rt-TextFieldInput):hover {
+  background-color: var(--neutral-light-100);
+}
+
+
+.Wrapper :global(.rt-TextFieldInput):focus-visible {
+outline: 2px solid var(--colors-teal-700);
+outline-offset: 2px;
+background-color: none;
+
+}
+
+.Wrapper :global(.rt-TextFieldInput) .error {
+  outline: none;
+  background-color: none;
+  border-color: var(--colors-red-800);
 }
