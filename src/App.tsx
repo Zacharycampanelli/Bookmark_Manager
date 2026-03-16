@@ -13,7 +13,7 @@ function App() {
     <LogoLightTheme />
       <ThemeSwitcher />
       <Checkbox />
-      <Input name="name" label="Name" type="text" placeholder="Enter your name" />
+      <Input name="name" label="Name" type="text" placeholder="Enter your name" isError={false} hint="This is a hint" />
     </>
   )
 }

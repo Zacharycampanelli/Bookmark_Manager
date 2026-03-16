@@ -3,14 +3,14 @@ import { SVGProps } from "react"
 const SearchIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    // width=".5em"
-    // height=".5em"
+   width="100%"
+   height="100%"
     viewBox="0 0 20 20"
     fill="none"
     {...props}
   >
     <path
-      stroke="#051513"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.6}

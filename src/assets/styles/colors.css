@@ -28,6 +28,10 @@
   --colors-teal-700: #014745; 
   --colors-teal-800: #013C3B; 
   
+  /* Red */
+  --colors-red-600: #FD4740;
+  --colors-red-800: #CB0A04;
+
   --black: #000000;
 }
 

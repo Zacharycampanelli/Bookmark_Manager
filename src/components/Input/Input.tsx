@@ -9,31 +9,33 @@ interface InputProps {
   type: string;
   placeholder?: string;
   hint?: string;
+  isError?: boolean; // Prop to manually trigger error state
 }
 
-const Input = ({ name, label, type, placeholder, hint = 'hint' }: InputProps) => {
+const Input = ({ name, label, type, placeholder, hint, isError }: InputProps) => {
   return (
-    <Box className={styles.Container}>
-      <Label.Root htmlFor={name} className={`text-preset-4 ${styles.Label}`}>
+    <Box className={` ${styles.Container} text-preset-4`}>
+      <Label.Root htmlFor={name} className={styles.Label}>
         {label}
       </Label.Root>
 
-      {/* Wrapper controls icon + field layout */}
-      <Box className={styles.Wrapper}>
+      <Box className={` ${styles.Wrapper} text-preset-4-medium`}>
         <SearchIcon className={styles.Icon} />
 
         <TextField.Root
           size="3"
           name={name}
           id={name}
+          type={type}
+          data-error={isError}
           placeholder={placeholder}
-          defaultValue={name || 'Search'}
+          /* Apply .error class based on prop */
           className={styles.Root}
         />
       </Box>
 
-`      {hint && <p className={`text-preset-4  ${styles.hint}`}>{hint}</p>}
-`    </Box>
+      {hint && <p className={styles.hint}>{hint}</p>}
+    </Box>
   );
 };
 

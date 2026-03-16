@@ -1,68 +1,87 @@
-/* label + field stack */
 .Container {
   display: flex;
   flex-direction: column;
-  color: var(--neutral-light-500);
+  gap: 4px;
 }
 
-/* positions icon relative to the field */
+.Label {
+  color: var(--neutral-light-800);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
 .Wrapper {
   position: relative;
   display: inline-block;
-  width: 20rem;
-}
-
-/* let Radix handle most styling; just ensure it fills wrapper */
-.Root {
   width: 100%;
+  max-width: 320px;
 }
 
-/* absolutely position icon INSIDE the field */
+/* Base Field Styling */
+.Wrapper :global(.rt-TextFieldInput) {
+  padding-left: 2.5rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid var(--neutral-light-500);
+  color: var(--neutral-light-800);
+  transition: all 0.2s ease;
+}
+
+/* Dark Mode Border Adjustment */
+:global([data-theme='dark']) .Wrapper :global(.rt-TextFieldInput) {
+  border-color: var(--neutral-dark-300);
+  background-color: var(--neutral-dark-600);
+  color: var(--neutral-dark-100);
+}
+
+/* Hover & Focus */
+.Wrapper :global(.rt-TextFieldInput):hover {
+  background-color: var(--neutral-light-100);
+}
+
+.Wrapper :global(.rt-TextFieldInput):focus-visible {
+  outline: none;
+  background-color: transparent;
+  border-color: var(--neutral-light-500);
+  box-shadow:
+    0 0 0 3px #ffffff,
+    /* Second shadow is your actual shadow further out */ 0 0 4px 4px var(--colors-teal-700);
+}
+
+/* 🔑 Error State */
+.Wrapper :global(.rt-TextFieldInput[data-error='true']) {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* Hover & Focus */
+:global([data-theme='dark']) .Wrapper :global(.rt-TextFieldInput):hover {
+  background-color: var(--neutral-dark-500);
+  border-color: var(--neutral-dark-400);
+}
+
+:global([data-theme='dark']) .Wrapper :global(.rt-TextFieldInput):focus-visible {
+  outline: none;
+  background-color: var(--neutral-dark-600);
+  border-color: var(--neutral-dark-600);
+  box-shadow: 0 0 2px 2px var(--neutral-dark-100);
+}
+
 .Icon {
   position: absolute;
   left: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 1rem;
-  height: 1rem;
-  pointer-events: none; /* don't block clicks */
-  display: block;
-  color: var(--neutral-light-500);
-}
-
-.Label {
-  color: var(--neutral-light-900);
-  margin-bottom: 4px;
+  z-index: 10;
+  width: 1.25rem;
+  height: 1.25rem;
+  pointer-events: none;
 }
 
 .hint {
-  color: var(--neutral-light-800);
-  margin-top: -10px;
-}
-/* Increase height by increasing vertical padding */
-.Wrapper :global(.rt-TextFieldInput) {
-  padding-left: 2rem; /* keeping your icon padding */
-  padding-top: 12px;
-  padding-bottom: 12px;
-  border-radius: 0.5rem;
-  border-width: 1px;
+  font-size: 12px;
   color: var(--neutral-light-500);
-}
-
-.Wrapper :global(.rt-TextFieldInput):hover {
-  background-color: var(--neutral-light-100);
-}
-
-
-.Wrapper :global(.rt-TextFieldInput):focus-visible {
-outline: 2px solid var(--colors-teal-700);
-outline-offset: 2px;
-background-color: none;
-
-}
-
-.Wrapper :global(.rt-TextFieldInput) .error {
-  outline: none;
-  background-color: none;
-  border-color: var(--colors-red-800);
+  margin-top: 4px;
 }
