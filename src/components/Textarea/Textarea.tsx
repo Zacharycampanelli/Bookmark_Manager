@@ -1,19 +1,30 @@
-import { TextField } from '@radix-ui/themes';
+import { useState } from 'react';
 import * as Form from '@radix-ui/react-form';
-import styles from './Input.module.css';
+import styles from './Textarea.module.css';
 import SearchIcon from '../../assets/svg/IconSearch';
 
-interface InputProps {
+interface TextareaProps {
   name: string;
   label: string;
-  type: string;
   placeholder?: string;
   hint?: string;
   required?: boolean;
+  rows?: number;
+  maxLength?: number;
 }
 
-const Input = ({ name, label, type, placeholder, hint, required = true }: InputProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+const Textarea = ({
+  name,
+  label,
+  placeholder,
+  hint,
+  required = true,
+  rows = 4,
+  maxLength = 280,
+}: TextareaProps) => {
+  const [charCount, setCharCount] = useState(0);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault();
     console.log('submit');
   };
@@ -26,31 +37,31 @@ const Input = ({ name, label, type, placeholder, hint, required = true }: InputP
         <SearchIcon className={styles.Icon} />
 
         <Form.Control asChild>
-          <TextField.Root
-            size="3"
+          <textarea
             id={name}
-            type={type}
             placeholder={placeholder}
             required={required}
-            className={styles.Root}
+            rows={rows}
+            maxLength={maxLength}
+            className={styles.Textarea}
+            onChange={(e) => setCharCount(e.target.value.length)}
           />
         </Form.Control>
+      </div>
+
+      <div className={styles.Footer}>
+        {hint ? <p className={styles.Hint}>{hint}</p> : <span />}
+        <span className={styles.CharCount}>
+          {charCount}/{maxLength}
+        </span>
       </div>
 
       <Form.Message match="valueMissing" className={styles.ErrorMessage}>
         This field is required.
       </Form.Message>
-
-      {type === 'email' && (
-        <Form.Message match="typeMismatch" className={styles.ErrorMessage}>
-          Please enter a valid email address.
-        </Form.Message>
-      )}
-
-      {hint && <p className={styles.hint}>{hint}</p>}
     </Form.Field>
     </Form.Root>
   );
 };
 
-export default Input;
+export default Textarea;

@@ -17,31 +17,44 @@
   max-width: 320px;
 }
 
-/* Base Field Styling */
-.Wrapper :global(.rt-TextFieldInput) {
-  padding-left: 2.5rem;
-  padding-top: 12px;
-  padding-bottom: 12px;
+.Icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem; /* anchored to top instead of vertically centered */
+  z-index: 10;
+  width: 1.25rem;
+  height: 1.25rem;
+  pointer-events: none;
+}
+
+.Textarea {
+  width: 100%;
+  padding: 12px 12px 12px 2.5rem; /* left padding makes room for icon */
   border-radius: 8px;
   background-color: transparent;
   border: 1px solid var(--neutral-light-500);
   color: var(--neutral-light-800);
   transition: all 0.2s ease;
+  resize: vertical;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 
-/* Dark Mode Border Adjustment */
-:global([data-theme='dark']) .Wrapper :global(.rt-TextFieldInput) {
+/* Dark Mode */
+:global([data-theme='dark']) .Textarea {
   border-color: var(--neutral-dark-300);
   background-color: var(--neutral-dark-600);
   color: var(--neutral-dark-100);
 }
 
 /* Hover & Focus */
-.Wrapper :global(.rt-TextFieldInput):hover {
+.Textarea:hover {
   background-color: var(--neutral-light-100);
 }
 
-.Wrapper :global(.rt-TextFieldInput):focus-visible {
+.Textarea:focus-visible {
   outline: none;
   background-color: transparent;
   border-color: var(--neutral-light-500);
@@ -50,38 +63,43 @@
     0 0 4px 4px var(--colors-teal-700);
 }
 
-/* Error State — driven by Radix Form's [data-invalid] */
-.Wrapper :global(.rt-TextFieldInput[data-invalid]) {
+/* Error State */
+.Textarea[data-invalid] {
   border-color: #ef4444;
   box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
 }
 
 /* Hover & Focus — Dark */
-:global([data-theme='dark']) .Wrapper :global(.rt-TextFieldInput):hover {
+:global([data-theme='dark']) .Textarea:hover {
   background-color: var(--neutral-dark-500);
   border-color: var(--neutral-dark-400);
 }
 
-:global([data-theme='dark']) .Wrapper :global(.rt-TextFieldInput):focus-visible {
+:global([data-theme='dark']) .Textarea:focus-visible {
   outline: none;
   background-color: var(--neutral-dark-600);
   border-color: var(--neutral-dark-600);
   box-shadow: 0 0 2px 2px var(--neutral-dark-100);
 }
 
-.Icon {
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 1.25rem;
-  height: 1.25rem;
-  pointer-events: none;
+/* Footer: hint on the left, char count on the right */
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 320px;
+  margin-top: 4px;
 }
 
-.hint {
+.Hint {
   font-size: 12px;
   color: var(--neutral-light-500);
-  margin-top: 4px;
+  margin: 0;
+}
+
+.CharCount {
+  font-size: 12px;
+  color: var(--neutral-light-500);
+  white-space: nowrap;
+  margin-left: auto;
 }
